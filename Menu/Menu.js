@@ -24,11 +24,11 @@ class Animation {
   }
   changeColor(){
     this.domElement.style.color='red';
-    TweenMax.to('li',1,{scale:1.5,opacity:1})
+    TweenMax.to(this.domElement,1,{scale:1.5})
   }
   backToColor(){
     this.domElement.style.color='black';
-    TweenMax.to('li',1,{scale:1, opacity:0.5,});
+    TweenMax.to(this.domElement,1,{scale:1});
   }
 }
 
