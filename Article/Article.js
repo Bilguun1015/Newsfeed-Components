@@ -112,23 +112,40 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
-function createArticle(){
+const articles = document.querySelector('.articles');
+data.forEach(data =>{
+  articles.appendChild(createArticle(data.title,data.date,data.firstParagraph,data.secondParagraph,data.thirdParagraph))
+})
+function createArticle(title,date,firstP,secondP,thirdP){
   const article = document.createElement('div');
   const articleTitle = document.createElement('h2');
   const articleDate = document.createElement('p');
-  const articleContent1 = document.createElement('p');
-  const articleContent2 = document.createElement('p');
-  const articleContent3 = document.createElement('p');
+  const articleParaph1 = document.createElement('p');
+  const articleParaph2 = document.createElement('p');
+  const articleParaph3 = document.createElement('p');
   const articleButton = document.createElement('span');
 
   article.appendChild(articleTitle);
   article.appendChild(articleDate);
-  article.appendChild(articleContent1);
-  article.appendChild(articleContent2);
-  article.appendChild(articleContent3);
+  article.appendChild(articleParaph1);
+  article.appendChild(articleParaph2);
+  article.appendChild(articleParaph3);
   article.appendChild(articleButton);
 
   article.classList.add('article');
-  articleTitle.getAttribute('h2');
   articleDate.classList.add('date');
+  articleButton.classList.add('expandButton');
+
+  articleButton.textContent = 'Expand';
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  articleParaph1.textContent = firstP;
+  articleParaph2.textContent = secondP;
+  articleParaph3.textContent = thirdP;
+
+  articleButton.addEventListener('click', event=>{
+    article.classList.toggle('article-open');
+  })
+
+  return article;
 }
