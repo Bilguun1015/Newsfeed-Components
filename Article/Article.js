@@ -130,5 +130,5 @@ function createArticle(){
 
   article.classList.add('article');
   articleTitle.getAttribute('h2');
-  
+  articleDate.classList.add('date');
 }
