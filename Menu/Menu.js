@@ -34,39 +34,43 @@ let menuItems = [
   
 */
 
-function menu(){
+function menu(array){
   const menuBar = document.createElement('div');
   const list = document.createElement('ul');
-  const listItem1 = document.createElement('li');
-  const listItem2 = document.createElement('li');
-  const listItem3 = document.createElement('li');
-  const listItem4 = document.createElement('li');
-  const listItem5 = document.createElement('li');
-  const listItem6 = document.createElement('li');
+  array.forEach(item => {
+    const listItem = document.createElement('li');
+    listItem.textContent = item;
+    list.appendChild(listItem);
+  })
+  // const listItem1 = document.createElement('li');
+  // const listItem2 = document.createElement('li');
+  // const listItem3 = document.createElement('li');
+  // const listItem4 = document.createElement('li');
+  // const listItem5 = document.createElement('li');
+  // const listItem6 = document.createElement('li');
 
   menuBar.appendChild(list);
-  list.appendChild(listItem1);
-  list.appendChild(listItem2);
-  list.appendChild(listItem3);
-  list.appendChild(listItem4);
-  list.appendChild(listItem5);
-  list.appendChild(listItem6);
+  // list.appendChild(listItem1);
+  // list.appendChild(listItem2);
+  // list.appendChild(listItem3);
+  // list.appendChild(listItem4);
+  // list.appendChild(listItem5);
+  // list.appendChild(listItem6);
 
   menuBar.classList.add('menu');
 
-  listItem1.textContent = menuItems[0];
-  listItem2.textContent = menuItems[1];
-  listItem3.textContent = menuItems[2];
-  listItem4.textContent = menuItems[3];
-  listItem5.textContent = menuItems[4];
-  listItem6.textContent = menuItems[5];
+  // listItem1.textContent = menuItems[0];
+  // listItem2.textContent = menuItems[1];
+  // listItem3.textContent = menuItems[2];
+  // listItem4.textContent = menuItems[3];
+  // listItem5.textContent = menuItems[4];
+  // listItem6.textContent = menuItems[5];
 
   const buttonMenu = document.querySelector('.menu-button');
   buttonMenu.addEventListener('click', event=>{
     menuBar.classList.toggle('menu--open');
   });
-
   return menuBar;
 }
 const header = document.querySelector('.header');
-header.appendChild(menu());
+header.appendChild(menu(menuItems));
